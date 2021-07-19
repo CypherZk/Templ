@@ -1,11 +1,9 @@
 const fs = require('fs');
-
 const folderName = process.argv[2] || 'Project';
 const css = `${folderName}/asset/css/`;
 const jsPath = `${folderName}/asset/js/`;
 const img = `${folderName}/asset/img/`;
 const pages = `${folderName}/pages/`;
-
 const boilerplateHTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -14,16 +12,15 @@ const boilerplateHTML = `
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${folderName}</title>
-    <link rel="stylesheet" href="${css}/app.css">
+    <link rel="stylesheet" href="asset/css/app.css">
 </head>
 <body>
     <h1>Hello World!</h1>
 
-    <script src="${jsPath}main.js"></script>
+    <script src="asset/js/main.js"></script>
 </body>
 </html>
 `;
-
 const boilerplateCSS = `
 *,*::before,*::after {
     margin: 0 !important;
@@ -50,5 +47,4 @@ const createTemplate = async function(folderName){
     fs.mkdirSync(`${jsPath}`);
     fs.writeFileSync(`./${jsPath}main.js`, boilerplateJS);
 }
-
 createTemplate(folderName);
